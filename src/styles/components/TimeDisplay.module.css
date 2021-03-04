@@ -1,0 +1,7 @@
+.TimeDisplayContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+  font-size: 1.15rem;
+}

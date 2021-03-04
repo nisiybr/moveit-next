@@ -64,6 +64,27 @@
   background: var(--white);
   color: var(--title);
   border: 0;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.countdownButtonActive div {
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  height: 5px;
+  position: absolute;
+  bottom: 0;
+  align-self: flex-start;
+
+
+
+}
+.countdownButtonActive > div {
+  background: var(--gray-line);
+  width: 100%;
+}
+.countdownButtonActive > div > div{
+  background: var(--green);
 }
 .countdownButtonActive:not(:disabled):hover {
   background-color: var(--red);

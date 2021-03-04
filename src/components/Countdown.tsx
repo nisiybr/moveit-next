@@ -3,10 +3,11 @@ import { CountdownContext } from '../contexts/CountdownContext';
 
 import styles from '../styles/components/Countdown.module.css';
 
+import { TimeDisplay } from '../components/TimeDisplay';
 
 
 export default function Countdown() {
-  const {minutes,seconds,hasFinished,isActive,resetCountdown,startCountdown} = useContext(CountdownContext);
+  const {minutes,seconds,hasFinished,isActive,minutesCountdown,percentTime, resetCountdown,startCountdown} = useContext(CountdownContext);
  
 
   const [minuteLeft, minuteRight] = String(minutes).padStart(2, '0').split('')
@@ -14,9 +15,9 @@ export default function Countdown() {
 
   
 
-
   return (
     <div>
+        {isActive && <TimeDisplay minutesCountdown={minutesCountdown} />}
         <div className={styles.countdownContainer}>
         <div>
           <span>{minuteLeft}</span>
@@ -41,7 +42,9 @@ export default function Countdown() {
             type="button" 
             className={`${styles.countdownButton} ${styles.countdownButtonActive}`}
             onClick={resetCountdown}
-          >Abandonar Ciclo</button>
+          >Abandonar Ciclo
+            <div><div style={{width: `${percentTime}%`}}></div></div>
+          </button>
           ): (
             <button 
             type="button" 
